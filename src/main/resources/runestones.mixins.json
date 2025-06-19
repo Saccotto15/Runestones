@@ -3,7 +3,7 @@
 	"package": "net.thevortex8196.runestones.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ItemWithRunestonesMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
