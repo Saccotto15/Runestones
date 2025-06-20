@@ -6,24 +6,16 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 
 public class RuneItem extends Item {
     public RuneItem(Settings settings) {
-        super(settings);
+        super(settings.maxCount(1));
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (entity instanceof LivingEntity living) {
-            living.addStatusEffect(new StatusEffectInstance(
-                    StatusEffects.GLOWING,
-                    20,
-                    0,
-                    false,
-                    false,
-                    false
-            ));
-        }
+
     }
 }

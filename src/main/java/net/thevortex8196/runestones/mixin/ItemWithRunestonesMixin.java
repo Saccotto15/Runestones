@@ -96,17 +96,6 @@ public abstract class ItemWithRunestonesMixin {
         String[] runestones = stack.get(ModDataComponents.RUNESTONES);
         List<String> runestonesL = Arrays.asList(runestones);
 
-        if (entity instanceof LivingEntity living && runestones.length > 0) {
-            living.addStatusEffect(new StatusEffectInstance(
-                    StatusEffects.GLOWING,
-                    20,
-                    0,
-                    false,
-                    false,
-                    false
-            ));
-        }
-
         if (runestones == null || !selected) {
             return;
         }
@@ -114,8 +103,8 @@ public abstract class ItemWithRunestonesMixin {
         if (runestonesL.contains("luck") && entity instanceof LivingEntity living) {
             living.addStatusEffect(new StatusEffectInstance(
                     StatusEffects.HERO_OF_THE_VILLAGE,
-                    12000,
-                    9,
+                    1200,
+                    4,
                     false,
                     false,
                     true
@@ -125,8 +114,8 @@ public abstract class ItemWithRunestonesMixin {
         if (runestonesL.contains("heart") && entity instanceof LivingEntity living) {
             living.addStatusEffect(new StatusEffectInstance(
                     StatusEffects.HEALTH_BOOST,
-                    36000,
-                    4,
+                    1200,
+                    1,
                     false,
                     false,
                     true
@@ -136,8 +125,8 @@ public abstract class ItemWithRunestonesMixin {
         if (runestonesL.contains("strength") && entity instanceof LivingEntity living) {
             living.addStatusEffect(new StatusEffectInstance(
                     StatusEffects.STRENGTH,
-                    200,
-                    2,
+                    20,
+                    1,
                     false,
                     false,
                     true
@@ -181,8 +170,7 @@ public abstract class ItemWithRunestonesMixin {
                         1.0f, 1.0f
                 );
             }
-
-            user.getItemCooldownManager().set(main.getItem(), 300);
+            if (!user.isCreative()) {user.getItemCooldownManager().set(main.getItem(), 150);}
         }
 
         // 🛠️ 1) Sneak + empty off-hand = remove last rune from main, give rune item to off-hand

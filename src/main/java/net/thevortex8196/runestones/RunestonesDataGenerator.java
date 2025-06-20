@@ -2,10 +2,7 @@ package net.thevortex8196.runestones;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.thevortex8196.runestones.datagen.ModBlockTagProvider;
-import net.thevortex8196.runestones.datagen.ModItemTagProvider;
-import net.thevortex8196.runestones.datagen.ModLootTableProvider;
-import net.thevortex8196.runestones.datagen.ModModelProvider;
+import net.thevortex8196.runestones.datagen.*;
 
 public class RunestonesDataGenerator implements DataGeneratorEntrypoint {
 	@Override

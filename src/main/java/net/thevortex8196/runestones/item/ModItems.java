@@ -8,6 +8,7 @@ import net.thevortex8196.runestones.Runestones;
 
 public class ModItems {
 
+    public static final Item BLANK_RUNE = registerItem("blank_rune", new RuneItem(new Item.Settings()));
     public static final Item LUCK_RUNE = registerItem("luck_rune", new RuneItem(new Item.Settings()));
     public static final Item DASH_RUNE = registerItem("dash_rune", new RuneItem(new Item.Settings()));
     public static final Item HEART_RUNE = registerItem("heart_rune", new RuneItem(new Item.Settings()));
@@ -18,7 +19,6 @@ public class ModItems {
         return Registry.register(Registries.ITEM, Identifier.of(Runestones.MOD_ID, name), item);
     }
 
-    public static void registerModItems() {
-        Runestones.LOGGER.info("Registering Mod Items for Celestial!!!");
+    public static void register() {
     }
 }

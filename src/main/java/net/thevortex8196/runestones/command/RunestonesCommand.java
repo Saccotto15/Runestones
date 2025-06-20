@@ -63,7 +63,6 @@ public class RunestonesCommand {
                     Text.literal("You have been granted a rune!"),
                     false
             );
-            Runestones.LOGGER.info("Gave {} to {}", rune, player.getName());
         }
 
         return 1;
