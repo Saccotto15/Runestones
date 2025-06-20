@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "runestones:block/rune_infuser"
+    }
+  }
+}

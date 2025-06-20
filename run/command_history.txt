@@ -1,0 +1,42 @@
+/effect give @s minecraft:health_boost infinite 0
+/effect give @s minecraft:health_boost infinite 1
+/effect give @s minecraft:health_boost infinite 2
+/effect give @s minecraft:health_boost infinite 3
+/effect give @s minecraft:health_boost infinite 4
+/effect clear
+/setblock ~ ~ ~ minecraft:nether_portal
+/setblock ~ ~ ~ chest{LootTable:"chests/bastion"} replace
+/kill
+/locate structure minecraft:ancient_city
+/tp @s 864 ~ 1248
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
+/effect give @s minecraft:night_vision infinite 255 true
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
+/setblock ~ ~ ~ chest{LootTable:"chests/bastion_treasure"} replace
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replaces
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replaces
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replaces
+/setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
+/setblock ~ ~ ~ chest{LootTable:"chests/bastion_treasure"} replace
+/summon minecraft:piglin_brute
+/kill
+/locate biome minecraft:ocean
+/tp @s -825 106 313
+/locate structure minecraft:shipwreck
+/tp @s -512 ~ 224
+/locate structure minecraft:buried_treasure
+/tp @s -375 ~ 425
+/locate structure minecraft:buried_treasure
+/tp @s -423 ~ 473
+/locate structure minecraft:buried_treasure
+/tp @s -407 ~ 905
+/locate structure minecraft:buried_treasure
+/tp @s -423 ~ 473
+/locate structure minecraft:buried_treasure
+/tp @s -375 ~ 425
+/locate structure minecraft:buried_treasure
+/tp @s -535 ~ 57
+/setblock ~ ~ ~ chest{LootTable:"chests/simple_dungeon"} replace
