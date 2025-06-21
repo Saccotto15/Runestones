@@ -2,11 +2,13 @@ package net.thevortex8196.runestones.mixin;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -26,6 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Mixin(Item.class)
 public abstract class ItemWithRunestonesMixin {
@@ -40,18 +43,25 @@ public abstract class ItemWithRunestonesMixin {
     private void onAppendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type, CallbackInfo ci) {
 
         Item item = stack.getItem();
+
+        // Look up the max capacity from runeCapacities
         Integer max = runeCapacities.entrySet().stream()
-                .filter(entry -> entry.getKey().isInstance(item))
+                .filter(e -> e.getKey().isInstance(item))
                 .map(Map.Entry::getValue)
                 .findFirst()
                 .orElse(null);
 
-        // If not a supported item, return
-        if (max == null) {
-            return;
-        } else {
+        // Read existing max runestones from the stack
+        Integer currentMax = stack.get(ModDataComponents.MAX_RUNESTONES);
+
+        // If the component hasn't been set yet and we have a capacity, set it
+        if (currentMax == null && max != null) {
             stack.set(ModDataComponents.MAX_RUNESTONES, max);
+            currentMax = max;
         }
+
+        // If still null (unsupported or unset), there's nothing more to do
+        if (currentMax == null) return;
 
         // Retrieve your runestones
         String[] runestones = stack.get(ModDataComponents.RUNESTONES);
@@ -64,7 +74,7 @@ public abstract class ItemWithRunestonesMixin {
 
 
         tooltip.add(Text.literal(""));
-        tooltip.add(Text.literal("§6Runestone Compatible §e(" + curr + "/" + max + ")"));
+        tooltip.add(Text.literal("§6Runestone Compatible §e(" + curr + "/" + currentMax + ")"));
 
         Map<String, String> colorMap = Map.of(
                 "luck", "2",
@@ -84,141 +94,120 @@ public abstract class ItemWithRunestonesMixin {
 
     @Inject(method = "inventoryTick", at = @At("TAIL"))
     private void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
-
-        int max;
-
-        try {
-            max = stack.get(ModDataComponents.MAX_RUNESTONES);
-        } catch (Throwable e) {
+        // Exit early if item isn't rune-compatible or not currently selected
+        if (stack.get(ModDataComponents.MAX_RUNESTONES) == null || !selected || !(entity instanceof LivingEntity living)) {
             return;
         }
 
         String[] runestones = stack.get(ModDataComponents.RUNESTONES);
-        List<String> runestonesL = Arrays.asList(runestones);
+        if (runestones == null) return;
 
-        if (runestones == null || !selected) {
-            return;
-        }
+        List<String> runestoneList = Arrays.asList(runestones);
 
-        if (runestonesL.contains("luck") && entity instanceof LivingEntity living) {
-            living.addStatusEffect(new StatusEffectInstance(
-                    StatusEffects.HERO_OF_THE_VILLAGE,
-                    1200,
-                    4,
-                    false,
-                    false,
-                    true
-            ));
-        }
+        applyEffectIfPresent(runestoneList, "luck", living, StatusEffects.HERO_OF_THE_VILLAGE, 1200, 4);
+        applyEffectIfPresent(runestoneList, "heart", living, StatusEffects.HEALTH_BOOST, 1200, 1);
+        applyEffectIfPresent(runestoneList, "strength", living, StatusEffects.STRENGTH, 20, 1);
+    }
 
-        if (runestonesL.contains("heart") && entity instanceof LivingEntity living) {
-            living.addStatusEffect(new StatusEffectInstance(
-                    StatusEffects.HEALTH_BOOST,
-                    1200,
-                    1,
-                    false,
-                    false,
-                    true
-            ));
-        }
-
-        if (runestonesL.contains("strength") && entity instanceof LivingEntity living) {
-            living.addStatusEffect(new StatusEffectInstance(
-                    StatusEffects.STRENGTH,
-                    20,
-                    1,
-                    false,
-                    false,
-                    true
-            ));
+    @Unique
+    private void applyEffectIfPresent(List<String> runestones, String key, LivingEntity living,
+                                      RegistryEntry<StatusEffect> effect, int duration, int amplifier) {
+        if (runestones.contains(key)) {
+            living.addStatusEffect(new StatusEffectInstance(effect, duration, amplifier, false, false, true));
         }
     }
 
     @Inject(method = "use", at = @At("TAIL"))
     private void use(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         ItemStack main = user.getStackInHand(hand);
-        int maxRunes;
+        Integer maxRunes = main.get(ModDataComponents.MAX_RUNESTONES);
+        if (maxRunes == null) return;
 
-        // Check if the main-hand item is rune-compatible
-        try {
-            maxRunes = main.get(ModDataComponents.MAX_RUNESTONES);
-        } catch (Throwable e) {
-            return;
-        }
-
-        String[] currentRunes = main.get(ModDataComponents.RUNESTONES);
-        if (currentRunes == null) currentRunes = new String[0];
-
+        String[] currentRunes = Optional.ofNullable(main.get(ModDataComponents.RUNESTONES)).orElse(new String[0]);
         ItemStack offHand = user.getOffHandStack();
+        List<String> runesList = Arrays.asList(currentRunes);
 
-        String[] runestones = main.get(ModDataComponents.RUNESTONES);
-        List<String> runestonesL = Arrays.asList(runestones);
-
-        // 🛠️ 1) Sneak + empty off-hand = remove last rune from main, give rune item to off-hand
+        // 1️⃣ Sneak + empty off-hand: remove last rune
         if (user.isSneaking() && offHand.isEmpty() && currentRunes.length > 0) {
-            String last = currentRunes[currentRunes.length - 1];
-
-            String[] updated = Arrays.copyOf(currentRunes, currentRunes.length - 1);  // removes last :contentReference[oaicite:1]{index=1}
-            main.set(ModDataComponents.RUNESTONES, updated);
-
-            Item runeItem = switch (last) {
-                case "luck" -> ModItems.LUCK_RUNE;
-                case "dash" -> ModItems.DASH_RUNE;
-                case "heart" -> ModItems.HEART_RUNE;
-                case "strength" -> ModItems.STRENGTH_RUNE;
-                case "sky" -> ModItems.SKY_RUNE;
-                default -> null;
-            };
-
-            if (runeItem != null) {
-                user.setStackInHand(Hand.OFF_HAND, new ItemStack(runeItem));
-            }
-            return;  // Exit after performing removal
-        }
-
-        // 🧩 2) Off-hand has a rune (and player isn't sneaking) = add rune back into main component
-        if (!offHand.isEmpty() && user.isSneaking()) {
-            Item offItem = offHand.getItem();
-            String rune = null;
-
-            if (offItem == ModItems.LUCK_RUNE) {
-                rune = "luck";
-            } else if (offItem == ModItems.DASH_RUNE) {
-                rune = "dash";
-            } else if (offItem == ModItems.HEART_RUNE) {
-                rune = "heart";
-            } else if (offItem == ModItems.STRENGTH_RUNE) {
-                rune = "strength";
-            } else if (offItem == ModItems.SKY_RUNE) {
-                rune = "sky";
-            }
-
-            if (rune != null && currentRunes.length < maxRunes) {
-                String[] appended = Arrays.copyOf(currentRunes, currentRunes.length + 1);
-                appended[currentRunes.length] = rune;
-                main.set(ModDataComponents.RUNESTONES, appended);
-                user.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
-            }
+            removeLastRune(main, user, currentRunes);
             return;
         }
 
-        if (runestonesL.contains("dash")) {
-            Vec3d lookDirection = user.getRotationVec(1.0F);
-            double strength = 2.0; // Adjust force here
+        // 2️⃣ Sneak + off-hand rune item: add rune back into main
+        if (user.isSneaking() && !offHand.isEmpty()) {
+            addRuneFromOffHand(main, user, offHand, currentRunes, maxRunes);
+            return;
+        }
 
-            user.setVelocity(lookDirection.multiply(strength));
-            user.velocityModified = true;
+        // 3️⃣ Dash ability
+        if (runesList.contains("dash")) {
+            performDash(user, main, world);
+        }
+    }
 
-            if (!user.getWorld().isClient) {
-                user.getWorld().playSound(
-                        null,
-                        user.getX(), user.getY(), user.getZ(),
-                        SoundEvents.ENTITY_PLAYER_TELEPORT, // you can choose another
-                        SoundCategory.PLAYERS,
-                        1.0f, 1.0f
-                );
-            }
-            if (!user.isCreative()) {user.getItemCooldownManager().set(main.getItem(), 150);}
+    @Unique
+    private void removeLastRune(ItemStack main, PlayerEntity user, String[] currentRunes) {
+        int idx = currentRunes.length - 1;
+        String last = currentRunes[idx];
+        String[] updated = Arrays.copyOf(currentRunes, idx);
+        main.set(ModDataComponents.RUNESTONES, updated);
+
+        Item runeItem = switch (last) {
+            case "luck"     -> ModItems.LUCK_RUNE;
+            case "dash"     -> ModItems.DASH_RUNE;
+            case "heart"    -> ModItems.HEART_RUNE;
+            case "strength" -> ModItems.STRENGTH_RUNE;
+            case "sky"      -> ModItems.SKY_RUNE;
+            default         -> null;
+        };
+        if (runeItem != null) {
+            user.setStackInHand(Hand.OFF_HAND, new ItemStack(runeItem));
+        }
+    }
+
+    @Unique
+    private void addRuneFromOffHand(ItemStack main, PlayerEntity user, ItemStack offHand, String[] currentRunes, int maxRunes) {
+        Item offItem = offHand.getItem();
+        String rune = null;
+
+        if (offItem == ModItems.LUCK_RUNE) {
+            rune = "luck";
+        } else if (offItem == ModItems.DASH_RUNE) {
+            rune = "dash";
+        } else if (offItem == ModItems.HEART_RUNE) {
+            rune = "heart";
+        } else if (offItem == ModItems.STRENGTH_RUNE) {
+            rune = "strength";
+        } else if (offItem == ModItems.SKY_RUNE) {
+            rune = "sky";
+        }
+
+        if (rune != null && currentRunes.length < maxRunes) {
+            String[] updated = Arrays.copyOf(currentRunes, currentRunes.length + 1);
+            updated[currentRunes.length] = rune;
+            main.set(ModDataComponents.RUNESTONES, updated);
+            user.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
+        }
+    }
+
+    @Unique
+    private void performDash(PlayerEntity user, ItemStack main, World world) {
+        Vec3d dv = user.getRotationVec(1.0F).multiply(2.0);
+        user.setVelocity(dv);
+        user.velocityModified = true;
+
+        if (!world.isClient) {
+            world.playSound(
+                    null,
+                    user.getX(), user.getY(), user.getZ(),
+                    SoundEvents.ENTITY_PLAYER_TELEPORT,
+                    SoundCategory.PLAYERS,
+                    1.0f, 1.0f
+            );
+        }
+
+        if (!user.isCreative()) {
+            user.getItemCooldownManager().set(main.getItem(), 150);
         }
     }
 }

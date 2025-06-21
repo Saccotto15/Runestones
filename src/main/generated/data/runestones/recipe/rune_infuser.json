@@ -9,13 +9,13 @@
       "item": "minecraft:purple_carpet"
     },
     "?": {
-      "tag": "minecraft:planks"
+      "item": "minecraft:quartz_block"
     }
   },
   "pattern": [
     "#,#",
-    "???",
-    "???"
+    " ? ",
+    "# #"
   ],
   "result": {
     "count": 1,

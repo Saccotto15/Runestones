@@ -2,6 +2,8 @@ package net.thevortex8196.runestones.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -13,7 +15,7 @@ import net.thevortex8196.runestones.Runestones;
 public class ModBlocks {
 
     public static final Block RUNE_INFUSER = registerBlock("rune_infuser",
-            new RuneInfuser(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD)));
+            new RuneInfuser(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).requiresTool().strength(0.8F)));
 
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(Runestones.MOD_ID, name),

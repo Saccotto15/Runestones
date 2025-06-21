@@ -1,6 +1,3 @@
-/kill
-/locate structure minecraft:ancient_city
-/tp @s 864 ~ 1248
 /setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
 /effect give @s minecraft:night_vision infinite 255 true
 /setblock ~ ~ ~ chest{LootTable:"chests/ancient_city"} replace
@@ -48,3 +45,6 @@
 /setblock ~ ~ ~ chest{LootTable:"chest:buried_treasure"} replace
 /setblock ~ ~ ~ chest{LootTable:"chests/buried_treasure"} replace
 /give @s minecraft:diamond 5
+/give @s minecraft:diamond_sword[runestones:max_runestones=5]
+/give @s minecraft:diamond_pickaxe[runestones:max_runestones=5]
+/give @s minecraft:diamond_sword[runestones:max_runestones=2]

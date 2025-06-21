@@ -1,5 +1,10 @@
 {
-	"favorites": [],
+	"favorites": [
+		"{mode:\"NOT_SET\",type:\"roughlyenoughitems:time\"}",
+		"{type:\"roughlyenoughitems:weather\",weather:\"NOT_SET\"}",
+		"{mode:\"NOT_SET\",type:\"roughlyenoughitems:gamemode\"}",
+		"{data:{count:1,id:\"minecraft:spruce_trapdoor\",type:\"minecraft:item\"},type:\"roughlyenoughitems:entry_stack\"}"
+	],
 	"hiddenFavorites": [],
 	"displays": []
 }

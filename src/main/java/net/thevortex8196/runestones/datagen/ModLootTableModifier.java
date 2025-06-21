@@ -32,7 +32,7 @@ public class ModLootTableModifier {
             )) {
                 LootPool pool = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.4f))
+                        .conditionally(RandomChanceLootCondition.builder(0.6f))
                         .with(ItemEntry.builder(ModItems.BLANK_RUNE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)).build())
                         .build();

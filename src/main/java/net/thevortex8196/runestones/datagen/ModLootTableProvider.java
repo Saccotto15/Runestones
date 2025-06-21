@@ -12,6 +12,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.thevortex8196.runestones.block.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,7 +23,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        //addDrop(ModBlocks.BLOCK_OF_CHEESE, dropsAmount(ModBlocks.BLOCK_OF_CHEESE, ModItems.CHEESE, 2F, 4F));
+        addDrop(ModBlocks.RUNE_INFUSER, dropsAmount(ModBlocks.RUNE_INFUSER, ModBlocks.RUNE_INFUSER.asItem(), 1F, 1F));
     }
 
     public LootTable.Builder dropsAmount(Block block, Item drop, Float amount_min, Float amount_max) {
