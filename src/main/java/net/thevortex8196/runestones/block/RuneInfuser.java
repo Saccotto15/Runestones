@@ -76,6 +76,6 @@ public class RuneInfuser extends BlockWithEntity implements BlockEntityProvider 
         }
 
         return validateTicker(type, ModBlockEntities.RUNE_INFUSER_BE,
-                (BlockEntityTicker<RuneInfuserBlockEntity>) RuneInfuserBlockEntity::tick);
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "runestones:rune_infuser",
+  "blank_runestone": {
+    "item": "runestones:blank_rune"
+  },
+  "input": {
+    "item": "minecraft:golden_carrot"
+  },
+  "diamond": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "count": 1,
+    "id": "runestones:heart_rune"
+  }
+}

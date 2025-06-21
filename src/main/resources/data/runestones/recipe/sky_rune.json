@@ -1,0 +1,16 @@
+{
+  "type": "runestones:rune_infuser",
+  "blank_runestone": {
+    "item": "runestones:blank_rune"
+  },
+  "input": {
+    "item": "minecraft:feather"
+  },
+  "diamond": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "count": 1,
+    "id": "runestones:sky_rune"
+  }
+}

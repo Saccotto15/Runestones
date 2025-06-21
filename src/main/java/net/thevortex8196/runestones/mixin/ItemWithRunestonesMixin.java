@@ -154,25 +154,6 @@ public abstract class ItemWithRunestonesMixin {
         String[] runestones = main.get(ModDataComponents.RUNESTONES);
         List<String> runestonesL = Arrays.asList(runestones);
 
-        if (runestonesL.contains("dash")) {
-            Vec3d lookDirection = user.getRotationVec(1.0F);
-            double strength = 2.0; // Adjust force here
-
-            user.setVelocity(lookDirection.multiply(strength));
-            user.velocityModified = true;
-
-            if (!user.getWorld().isClient) {
-                user.getWorld().playSound(
-                        null,
-                        user.getX(), user.getY(), user.getZ(),
-                        SoundEvents.ENTITY_PLAYER_TELEPORT, // you can choose another
-                        SoundCategory.PLAYERS,
-                        1.0f, 1.0f
-                );
-            }
-            if (!user.isCreative()) {user.getItemCooldownManager().set(main.getItem(), 150);}
-        }
-
         // 🛠️ 1) Sneak + empty off-hand = remove last rune from main, give rune item to off-hand
         if (user.isSneaking() && offHand.isEmpty() && currentRunes.length > 0) {
             String last = currentRunes[currentRunes.length - 1];
@@ -218,6 +199,26 @@ public abstract class ItemWithRunestonesMixin {
                 main.set(ModDataComponents.RUNESTONES, appended);
                 user.setStackInHand(Hand.OFF_HAND, ItemStack.EMPTY);
             }
+            return;
+        }
+
+        if (runestonesL.contains("dash")) {
+            Vec3d lookDirection = user.getRotationVec(1.0F);
+            double strength = 2.0; // Adjust force here
+
+            user.setVelocity(lookDirection.multiply(strength));
+            user.velocityModified = true;
+
+            if (!user.getWorld().isClient) {
+                user.getWorld().playSound(
+                        null,
+                        user.getX(), user.getY(), user.getZ(),
+                        SoundEvents.ENTITY_PLAYER_TELEPORT, // you can choose another
+                        SoundCategory.PLAYERS,
+                        1.0f, 1.0f
+                );
+            }
+            if (!user.isCreative()) {user.getItemCooldownManager().set(main.getItem(), 150);}
         }
     }
 }

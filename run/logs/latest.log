@@ -1,16 +1,18 @@
-[12:28:43] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.16.14
-[12:28:43] [main/INFO] (FabricLoader) Loading 60 mods:
+[07:36:03] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.16.14
+[07:36:03] [main/INFO] (FabricLoader) Loading 60 mods:
+	- architectury 13.0.8
+	- cloth-basic-math 0.6.1
 	- cloth-config 15.0.140
-	   \-- cloth-basic-math 0.6.1
+	- error_notifier 1.0.11
 	- fabric-api 0.116.3+1.21.1
-	- fabric-api-base 0.4.42+6573ed8c19
+	- fabric-api-base 0.4.42+6573ed8cd1
 	- fabric-api-lookup-api-v1 1.6.71+b559734419
 	- fabric-biome-api-v1 13.0.31+d527f9fd19
 	- fabric-block-api-v1 1.1.0+0bc3503219
 	- fabric-block-view-api-v2 1.0.11+ebb2264e19
 	- fabric-blockrenderlayer-v1 1.1.52+0af3f5a719
-	- fabric-client-tags-api-v1 1.1.15+6573ed8c19
-	- fabric-command-api-v1 1.2.49+f71b366f19
+	- fabric-client-tags-api-v1 1.1.15+6573ed8cd1
+	- fabric-command-api-v1 1.2.49+f71b366fd1
 	- fabric-command-api-v2 2.2.28+6ced4dd919
 	- fabric-commands-v0 0.2.66+df3654b319
 	- fabric-content-registries-v0 8.0.19+b559734419
@@ -32,14 +34,14 @@
 	- fabric-loot-api-v2 3.0.15+3f89f5a519
 	- fabric-loot-api-v3 1.0.3+3f89f5a519
 	- fabric-message-api-v1 6.0.14+8aaf3aca19
-	- fabric-model-loading-api-v1 2.0.0+fe474d6b19
+	- fabric-model-loading-api-v1 2.0.0+fe474d6bd1
 	- fabric-networking-api-v1 4.3.0+c7469b2119
 	- fabric-object-builder-api-v1 15.2.1+40875a9319
-	- fabric-particles-v1 4.0.2+6573ed8c19
+	- fabric-particles-v1 4.0.2+6573ed8cd1
 	- fabric-recipe-api-v1 5.0.14+248df81c19
 	- fabric-registry-sync-v0 5.3.1+e3eddc2119
-	- fabric-renderer-api-v1 3.4.0+c705a49c19
-	- fabric-renderer-indigo 1.7.0+c705a49c19
+	- fabric-renderer-api-v1 3.4.0+c705a49cd1
+	- fabric-renderer-indigo 1.7.0+c705a49cd1
 	- fabric-renderer-registries-v1 3.2.68+df3654b319
 	- fabric-rendering-data-attachment-v1 0.3.49+73761d2e19
 	- fabric-rendering-fluids-v1 3.1.6+1daea21519
@@ -49,82 +51,161 @@
 	- fabric-resource-loader-v0 1.3.1+5b5275af19
 	- fabric-screen-api-v1 2.0.25+8b68f1c719
 	- fabric-screen-handler-api-v1 1.3.90+b559734419
-	- fabric-sound-api-v1 1.0.23+6573ed8c19
+	- fabric-sound-api-v1 1.0.23+6573ed8cd1
 	- fabric-transfer-api-v1 5.4.3+c24bd99419
 	- fabric-transitive-access-wideners-v1 6.2.0+45b9699719
 	- fabricloader 0.16.14
-	- hold-my-items 4.3
 	- java 21
 	- minecraft 1.21.1
 	- mixinextras 0.4.1
-	- modmenu 11.0.3
-	   \-- placeholder-api 2.4.0-pre.2+1.21
+	- roughlyenoughitems 16.0.799
 	- runestones 1.0.1
-[12:28:46] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/Users/aaronfacchin/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
-[12:28:46] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[12:28:46] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
-[12:28:46] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
-[12:28:47] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[12:28:48] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 210 milliseconds
-[12:28:55] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[12:28:55] [Render thread/INFO] (Minecraft) Setting user: Player547
-[12:28:55] [Render thread/INFO] (runestones) Initialising Runestones by TheVortex8196.
-[12:28:55] [Render thread/INFO] (hold-my-items) Hello Fabric world!
-[12:28:55] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
-[12:28:55] [Render thread/INFO] (Mod Menu/Update Checker) Checking mod updates...
-[12:28:55] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
-[12:28:57] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, cloth-config, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, hold-my-items, modmenu, runestones
-[12:28:57] [Worker-Main-6/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
-[12:28:57] [Worker-Main-3/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
-[12:28:59] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
-[12:28:59] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[12:29:02] [Render thread/INFO] (Minecraft) OpenAL initialized on device AirPods 4 di Aaron
-[12:29:02] [Render thread/INFO] (Minecraft) Sound engine started
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[12:29:02] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[12:29:02] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[12:29:08] [Render thread/INFO] (Minecraft) Loaded 1290 recipes
-[12:29:08] [Render thread/INFO] (Minecraft) Loaded 1399 advancements
-[12:29:08] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 664.2 μs
-[12:29:08] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21.1
-[12:29:08] [Server thread/INFO] (Minecraft) Generating keypair
-[12:29:09] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
-[12:29:10] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
-[12:29:10] [Render thread/INFO] (Minecraft) Time elapsed: 233 ms
-[12:29:10] [Server thread/INFO] (Minecraft) Changing view distance to 16, from 10
-[12:29:10] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
-[12:29:10] [Server thread/INFO] (Minecraft) Player547[local:E:c3cd2eb1] logged in with entity id 64 at (6.313892590542983, 67.0, -6.858041918472764)
-[12:29:10] [Server thread/INFO] (Minecraft) Player547 joined the game
-[12:29:10] [Server thread/INFO] (Minecraft) Player547 has made the advancement [Diamonds!]
-[12:29:10] [Render thread/INFO] (Minecraft) [System] [CHAT] Player547 has made the advancement [Diamonds!]
-[12:29:10] [Render thread/INFO] (Minecraft) Loaded 31 advancements
-[12:30:52] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[12:30:52] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[12:30:52] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[12:30:52] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[12:30:52] [Server thread/INFO] (Minecraft) Player547 lost connection: Disconnected
-[12:30:52] [Server thread/INFO] (Minecraft) Player547 left the game
-[12:30:52] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
-[12:30:52] [Server thread/INFO] (Minecraft) Stopping server
-[12:30:52] [Server thread/INFO] (Minecraft) Saving players
-[12:30:52] [Server thread/INFO] (Minecraft) Saving worlds
-[12:30:52] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[12:30:53] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[12:30:53] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[12:30:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World (1)): All chunks are saved
-[12:30:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[12:30:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[12:30:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
-[12:30:53] [Render thread/INFO] (Minecraft) Stopping!
+[07:36:03] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/Users/aaronfacchin/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[07:36:03] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[07:36:03] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
+[07:36:04] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[07:36:04] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 266 milliseconds
+[07:36:08] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[07:36:08] [Render thread/INFO] (Minecraft) Setting user: Player968
+[07:36:08] [Render thread/INFO] (runestones) Initialising Runestones by TheVortex8196.
+[07:36:08] [Render thread/INFO] (runestones) Registering Custom Recipes for runestones
+[07:36:08] [Render thread/INFO] (REI) [REI] Config loaded
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id roughlyenoughitems:request_tags_s2c
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:request_tags_c2s
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultPlugin [roughlyenoughitems] for REIPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultRuntimePlugin [roughlyenoughitems] for REIPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultClientPlugin [roughlyenoughitems] for REIPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultClientRuntimePlugin [roughlyenoughitems] for REIPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider HideIngredientsFromTagsPlugin [roughlyenoughitems] for REIPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultPlugin [roughlyenoughitems] for REIServerPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultRuntimePlugin [roughlyenoughitems] for REIServerPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider FabricFluidAPISupportPlugin for REIServerPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider FabricFluidAPISupportPlugin for REIPlugin
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:delete_item
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:create_item
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:create_item_grab
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:create_item_hotbar
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:move_items
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id roughlyenoughitems:move_items_new
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id architectury:spawn_entity_packet
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultClientPlugin [roughlyenoughitems] for REIClientPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider DefaultClientRuntimePlugin [roughlyenoughitems] for REIClientPlugin
+[07:36:08] [Render thread/INFO] (REI) [REI] Registered plugin provider HideIngredientsFromTagsPlugin [roughlyenoughitems] for REIClientPlugin
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id roughlyenoughitems:ci_msg
+[07:36:08] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id roughlyenoughitems:og_not_enough
+[07:36:08] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[07:36:09] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
+[07:36:11] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, cloth-config, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, roughlyenoughitems, runestones
+[07:36:11] [Worker-Main-4/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[07:36:11] [Worker-Main-7/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[07:36:12] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[07:36:12] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[07:36:12] [Render thread/INFO] (Minecraft) OpenAL initialized on device AirPods 4 di Aaron
+[07:36:12] [Render thread/INFO] (Minecraft) Sound engine started
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[07:36:12] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[07:36:13] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[07:36:13] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[07:36:13] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[07:36:13] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[07:36:13] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[07:36:13] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[07:36:20] [Render thread/INFO] (Minecraft) Loaded 1296 recipes
+[07:36:20] [Render thread/INFO] (Minecraft) Loaded 1400 advancements
+[07:36:20] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 708.0 μs
+[07:36:20] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21.1
+[07:36:20] [Server thread/INFO] (Minecraft) Generating keypair
+[07:36:21] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[07:36:21] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[07:36:21] [Render thread/INFO] (Minecraft) Time elapsed: 252 ms
+[07:36:22] [Server thread/INFO] (Minecraft) Changing view distance to 16, from 10
+[07:36:22] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[07:36:22] [Server thread/INFO] (Minecraft) Player968[local:E:a50bd23f] logged in with entity id 75 at (40.730436994052646, 111.0, 17.842083373575157)
+[07:36:22] [Server thread/INFO] (Minecraft) Player968 joined the game
+[07:36:22] [Render thread/WARN] (Minecraft) Unknown recipe category: runestones:rune_infuser/runestones:strength_rune
+[07:36:22] [Render thread/WARN] (Minecraft) Unknown recipe category: runestones:rune_infuser/runestones:sky_rune
+[07:36:22] [Render thread/WARN] (Minecraft) Unknown recipe category: runestones:rune_infuser/runestones:luck_rune
+[07:36:22] [Render thread/WARN] (Minecraft) Unknown recipe category: runestones:rune_infuser/runestones:dash_rune
+[07:36:22] [Render thread/WARN] (Minecraft) Unknown recipe category: runestones:rune_infuser/runestones:heart_rune
+[07:36:22] [Render thread/WARN] (REI) [REI] Found 1 existing reload task(s) after trying to terminate them!
+[07:36:22] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] ----------------------------------------
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] REIPlugin starting main-reload for START.
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] Plugins (6):
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultClientPlugin of DefaultClientPlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultPlugin of DefaultPlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) FabricFluidAPISupportPlugin
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) HideIngredientsFromTagsPlugin of HideIngredientsFromTagsPlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultClientRuntimePlugin of DefaultClientRuntimePlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultRuntimePlugin of DefaultRuntimePlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] ----------------------------------------
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] REIClientPlugin starting main-reload for START.
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] Plugins (3):
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultClientPlugin of DefaultClientPlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) HideIngredientsFromTagsPlugin of HideIngredientsFromTagsPlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultClientRuntimePlugin of DefaultClientRuntimePlugin [roughlyenoughitems]
+[07:36:22] [REI-ReloadPlugins/INFO] (REI) [REI] OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] ========================================
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] REIServerPlugin starting main-reload for START.
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] Plugins (3):
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultPlugin of DefaultPlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) FabricFluidAPISupportPlugin
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultRuntimePlugin of DefaultRuntimePlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] ========================================
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] REIPlugin finished post-reload for START in 648.8 μs, totaling 71.19 ms.
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] REIClientPlugin finished post-reload for START in 637.8 μs, totaling 347.7 ms.
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] REIServerPlugin finished post-reload for START in 268.2 μs, totaling 2.673 ms.
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] REIPlugin starting main-reload for END.
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] Plugins (6):
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultClientPlugin of DefaultClientPlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultPlugin of DefaultPlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) FabricFluidAPISupportPlugin
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) HideIngredientsFromTagsPlugin of HideIngredientsFromTagsPlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultClientRuntimePlugin of DefaultClientRuntimePlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultRuntimePlugin of DefaultRuntimePlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] ----------------------------------------
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] REIClientPlugin starting main-reload for END.
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] Plugins (3):
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultClientPlugin of DefaultClientPlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) HideIngredientsFromTagsPlugin of HideIngredientsFromTagsPlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultClientRuntimePlugin of DefaultClientRuntimePlugin [roughlyenoughitems]
+[07:36:23] [REI-ReloadPlugins/INFO] (REI) [REI] ----------------------------------------
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] ----------------------------------------
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] REIServerPlugin starting main-reload for END.
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] Plugins (3):
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI]  - (-100,00) DefaultPlugin of DefaultPlugin [roughlyenoughitems]
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) FabricFluidAPISupportPlugin
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI]  - (0,00) DefaultRuntimePlugin of DefaultRuntimePlugin [roughlyenoughitems]
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] ----------------------------------------
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] REIPlugin finished post-reload for END in 412.1 μs, totaling 28.92 ms.
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] REIClientPlugin finished post-reload for END in 2.209 ms, totaling 1.021 s.
+[07:36:24] [REI-ReloadPlugins/INFO] (REI) [REI] REIServerPlugin finished post-reload for END in 242.5 μs, totaling 3.892 ms.
+[07:36:29] [REI-AsyncSearchManager-0/ERROR] (REI) [REI] Error while searching
+java.util.concurrent.CompletionException: java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[?:?]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1770) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760) [?:?]
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) [?:?]
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) [?:?]
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) [?:?]
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) [?:?]
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) [?:?]
+Caused by: java.util.concurrent.CancellationException
+	at knot/me.shedaniel.rei.impl.client.search.AsyncSearchManager.lambda$get$3(AsyncSearchManager.java:157) ~[RoughlyEnoughItems-fabric-16.0.799.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	... 6 more
+[07:36:39] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[07:36:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[07:36:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[07:36:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end

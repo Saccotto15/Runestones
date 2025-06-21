@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "runestones:block/rune_infuser"
+    "bottom": "runestones:block/rune_infuser_bottom",
+    "side": "runestones:block/rune_infuser_side",
+    "top": "runestones:block/rune_infuser_top"
   }
 }

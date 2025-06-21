@@ -1,10 +1,10 @@
-// 1.21.1	2025-06-20T11:19:01.945082	Runestones/Model Definitions
+// 1.21.1	2025-06-20T17:07:11.140261	Runestones/Model Definitions
 e2f86e63f8e417a93df0f790ff39199c8a5e474e assets/runestones/models/item/luck_rune.json
 fb2ca632c8b7ca34328a33da5577a93da64786a1 assets/runestones/blockstates/rune_infuser.json
-4f5e89acf2b7be6b1ca6aad794060373b76b1237 assets/runestones/models/item/strength_rune.json
 420b75647ac9524ec38aa2f0fe67cd68d0d2f322 assets/runestones/models/item/blank_rune.json
+4f5e89acf2b7be6b1ca6aad794060373b76b1237 assets/runestones/models/item/strength_rune.json
 00895b2975e4f77b34e5ebff4e5a847ba69814eb assets/runestones/models/item/rune_infuser.json
 9a8533e1b3a02124838ab538113fec09c747b63e assets/runestones/models/item/sky_rune.json
-6250c900218e3560e33834182df88802381a5d8c assets/runestones/models/block/rune_infuser.json
+4511884b69847065f7d36b9c0a316635ba717725 assets/runestones/models/block/rune_infuser.json
 69357456281f6cc26279739316e2e0e94aa7cbc4 assets/runestones/models/item/heart_rune.json
 693ede26a35f8b6569dfd26b84817606434a4fbe assets/runestones/models/item/dash_rune.json

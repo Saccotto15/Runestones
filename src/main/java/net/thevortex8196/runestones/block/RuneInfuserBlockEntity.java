@@ -12,6 +12,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -19,10 +20,16 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.thevortex8196.runestones.Runestones;
 import net.thevortex8196.runestones.item.ModItems;
+import net.thevortex8196.runestones.recipe.ModRecipes;
+import net.thevortex8196.runestones.recipe.RuneInfuserRecipe;
+import net.thevortex8196.runestones.recipe.RuneInfuserRecipeInput;
 import net.thevortex8196.runestones.screen.RuneInfuserScreenHandler;
 import org.jetbrains.annotations.Nullable;
 import net.minecraft.inventory.SidedInventory;
+
+import java.util.Optional;
 
 public class RuneInfuserBlockEntity extends BlockEntity
         implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory, SidedInventory {
@@ -44,6 +51,11 @@ public class RuneInfuserBlockEntity extends BlockEntity
     }
 
     @Override
+    public DefaultedList<ItemStack> getItems() {
+        return inventory;
+    }
+
+    @Override
     public Text getDisplayName() {
         return Text.translatable("block.runestones.rune_infuser");
     }
@@ -51,11 +63,6 @@ public class RuneInfuserBlockEntity extends BlockEntity
     @Override
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new RuneInfuserScreenHandler(syncId, inv, this);
-    }
-
-    @Override
-    public DefaultedList<ItemStack> getItems() {
-        return inventory;
     }
 
     @Override
@@ -70,23 +77,37 @@ public class RuneInfuserBlockEntity extends BlockEntity
         Inventories.readNbt(nbt, inventory, registryLookup);
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, RuneInfuserBlockEntity blockEntity) {
-        if (blockEntity.hasRecipe()) {
-            blockEntity.setStack(OUTPUT_SLOT, new ItemStack(ModItems.HEART_RUNE, 1));
-            blockEntity.markDirty();
-            world.updateListeners(pos, state, state, 3);
-        } else if (!blockEntity.getStack(OUTPUT_SLOT).isEmpty()) {
-            blockEntity.setStack(OUTPUT_SLOT, ItemStack.EMPTY);
-            blockEntity.markDirty();
+    public void tick(World world, BlockPos pos, BlockState state) {
+        if (hasRecipe()) {
+            craftItem();
+        } else if (!getStack(OUTPUT_SLOT).isEmpty()) {
+            setStack(OUTPUT_SLOT, ItemStack.EMPTY);
+            markDirty();
             world.updateListeners(pos, state, state, 3);
         }
     }
 
+    private void craftItem() {
+        Optional<RecipeEntry<RuneInfuserRecipe>> recipe = getCurrentRecipe();
+
+        ItemStack output = recipe.get().value().output();
+
+        this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(), 1));
+    }
+
 
     private boolean hasRecipe() {
-        return this.getStack(BLANK_RUNESTONE_SLOT).isOf(ModItems.BLANK_RUNE)
-                && this.getStack(INPUT_SLOT).isOf(Items.RED_DYE)
-                && this.getStack(DIAMOND_SLOT).isOf(Items.DIAMOND);
+        Optional<RecipeEntry<RuneInfuserRecipe>> recipe = getCurrentRecipe();
+        if(recipe.isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private Optional<RecipeEntry<RuneInfuserRecipe>> getCurrentRecipe() {
+        return this.getWorld().getRecipeManager()
+                .getFirstMatch(ModRecipes.RUNE_INFUSER_TYPE, new RuneInfuserRecipeInput(inventory.get(BLANK_RUNESTONE_SLOT), inventory.get(INPUT_SLOT), inventory.get(DIAMOND_SLOT)), this.getWorld());
     }
 
     @Override
